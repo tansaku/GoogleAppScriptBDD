@@ -8,20 +8,22 @@ Background: assignments have been added to the database
  
   Given the following assignments exist
   | title				| week	| optional 	|
-  | introduction post 		| 1 	| no		|
-  | background questionnaire      | 1	| no		|
+  | Introduction Video 		        | 1 	| no		|
+  | background questionnaire            | 1	| no		|
  
- # need student table and submission table
- # and logged in as some student?
- And I am on the home page
+  # need student table and submission table
+  # and logged in as some student?
+  And I am on the home page
+  And I am logged in
+  And I view the script
  
 Scenario: view outstanding assignments
-  I should see "You have completed the introduction post"
-  I should see "You have not completed the background questionnaire"
+  Then I should see "You have watched the Introduction Video"
+  Then I should see "You have not completed the background questionnaire"
  
 Scenario: submit an outstanding assignment
- Given that I enter 'yes' into background_questionnaire textfield
- And click submit
- Then I should see "You have completed the background questionnaire"
- #And I should see "view your submission"	
- #And I should see "edit your submission"
+  Given that I enter 'yes' into background_questionnaire textfield
+  And click submit
+  Then I should see "You have completed the background questionnaire"
+  #And I should see "view your submission"	
+  #And I should see "edit your submission"
